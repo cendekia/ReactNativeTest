@@ -4,6 +4,7 @@ var DatePicker = require('./DatePicker')
 var Images = require('./Images')
 var ListViews = require('./ListViews')
 var MapViews = require('./MapViews')
+var Picker = require('./Picker')
 
 var {
   AppRegistry,
@@ -73,6 +74,12 @@ class Main extends React.Component{
       title: 'Map Views',
     })
   }
+  goToPicker(){
+    this.props.navigator.push({
+      component: Picker,
+      title: 'Picker IOS',
+    })
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -105,6 +112,12 @@ class Main extends React.Component{
           onPress={this.goToMapViews.bind(this)}
           underlayColor="#88D4F5">
             <Text style={styles.buttonText}>Map Views</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={this.makeBackground(1)}
+          onPress={this.goToPicker.bind(this)}
+          underlayColor="#88D4F5">
+            <Text style={styles.buttonText}>Picker IOS</Text>
         </TouchableHighlight>
       </View>
     )
