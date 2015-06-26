@@ -1,6 +1,7 @@
 var React = require('react-native')
 var ActivityIndicator = require('./ActivityIndicator')
 var DatePicker = require('./DatePicker')
+var Images = require('./Images')
 
 var {
   AppRegistry,
@@ -51,6 +52,12 @@ class Main extends React.Component{
       title: 'Date Picker',
     })
   }
+  goToImages(){
+    this.props.navigator.push({
+      component: Images,
+      title: 'Image',
+    })
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -65,6 +72,12 @@ class Main extends React.Component{
           onPress={this.goToDatePicker.bind(this)}
           underlayColor="#88D4F5">
             <Text style={styles.buttonText}>Date Picker</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={this.makeBackground(0)}
+          onPress={this.goToImages.bind(this)}
+          underlayColor="#88D4F5">
+            <Text style={styles.buttonText}>Images</Text>
         </TouchableHighlight>
       </View>
     )
