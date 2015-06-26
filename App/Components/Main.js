@@ -1,5 +1,6 @@
 var React = require('react-native')
 var ActivityIndicator = require('./ActivityIndicator')
+var DatePicker = require('./DatePicker')
 
 var {
   AppRegistry,
@@ -32,6 +33,8 @@ class Main extends React.Component{
     }
     if(btn === 0){
       obj.backgroundColor = '#48BBEC'
+    }else if (btn === 1){
+      obj.backgroundColor = '#E77AAE'
     }
 
     return obj
@@ -42,6 +45,12 @@ class Main extends React.Component{
       title: 'Activity Indicator',
     })
   }
+  goToDatePicker(){
+    this.props.navigator.push({
+      component: DatePicker,
+      title: 'Date Picker',
+    })
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -50,6 +59,12 @@ class Main extends React.Component{
           onPress={this.goToActivityIndicator.bind(this)}
           underlayColor="#88D4F5">
             <Text style={styles.buttonText}>Activity Indicator</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={this.makeBackground(1)}
+          onPress={this.goToDatePicker.bind(this)}
+          underlayColor="#88D4F5">
+            <Text style={styles.buttonText}>Date Picker</Text>
         </TouchableHighlight>
       </View>
     )
