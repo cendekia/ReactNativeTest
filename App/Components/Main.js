@@ -3,6 +3,7 @@ var ActivityIndicator = require('./ActivityIndicator')
 var DatePicker = require('./DatePicker')
 var Images = require('./Images')
 var ListViews = require('./ListViews')
+var MapViews = require('./MapViews')
 
 var {
   AppRegistry,
@@ -15,6 +16,7 @@ var {
 var styles = StyleSheet.create({
   container: {
     flex: 1,
+    marginTop: 65,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -65,6 +67,12 @@ class Main extends React.Component{
       title: 'List Views',
     })
   }
+  goToMapViews(){
+    this.props.navigator.push({
+      component: MapViews,
+      title: 'Map Views',
+    })
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -91,6 +99,12 @@ class Main extends React.Component{
           onPress={this.goToListViews.bind(this)}
           underlayColor="#88D4F5">
             <Text style={styles.buttonText}>List Views</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={this.makeBackground(0)}
+          onPress={this.goToMapViews.bind(this)}
+          underlayColor="#88D4F5">
+            <Text style={styles.buttonText}>Map Views</Text>
         </TouchableHighlight>
       </View>
     )
