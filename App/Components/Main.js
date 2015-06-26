@@ -2,6 +2,7 @@ var React = require('react-native')
 var ActivityIndicator = require('./ActivityIndicator')
 var DatePicker = require('./DatePicker')
 var Images = require('./Images')
+var ListViews = require('./ListViews')
 
 var {
   AppRegistry,
@@ -58,6 +59,12 @@ class Main extends React.Component{
       title: 'Image',
     })
   }
+  goToListViews(){
+    this.props.navigator.push({
+      component: ListViews,
+      title: 'List Views',
+    })
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -78,6 +85,12 @@ class Main extends React.Component{
           onPress={this.goToImages.bind(this)}
           underlayColor="#88D4F5">
             <Text style={styles.buttonText}>Images</Text>
+        </TouchableHighlight>
+        <TouchableHighlight
+          style={this.makeBackground(1)}
+          onPress={this.goToListViews.bind(this)}
+          underlayColor="#88D4F5">
+            <Text style={styles.buttonText}>List Views</Text>
         </TouchableHighlight>
       </View>
     )
